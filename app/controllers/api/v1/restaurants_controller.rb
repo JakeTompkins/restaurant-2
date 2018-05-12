@@ -26,7 +26,7 @@ class Api::V1::RestaurantsController < Api::V1::BaseController
   end
 
   def destroy
-    @restaurant = Restaurant.new(restaurant_params)
+    @restaurant = Restaurant.find(params[:id])
     if @restaurant.destroy
       head :no_content
     else
