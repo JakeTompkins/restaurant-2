@@ -18,7 +18,7 @@ class Api::V1::RestaurantsController < Api::V1::BaseController
 
   def create
     @restaurant = Restaurant.new(restaurant_params)
-    if restaurant.save
+    if @restaurant.save
       render :show, status: :created
     else
       render_error
@@ -27,7 +27,7 @@ class Api::V1::RestaurantsController < Api::V1::BaseController
 
   def destroy
     @restaurant = Restaurant.new(restaurant_params)
-    if restaurant.destroy
+    if @restaurant.destroy
       head :no_content
     else
       render_error
